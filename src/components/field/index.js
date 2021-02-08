@@ -195,6 +195,13 @@ export default class TextField extends PureComponent {
     this.mounted = true
   }
 
+static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.value!==prevState.text){
+      return { text: nextProps.value};
+   }
+   else return null;
+ }
+
   componentWillUnmount() {
     this.mounted = false
   }
